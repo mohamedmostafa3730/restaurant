@@ -16,6 +16,12 @@ export class DataService {
     return this.httpClient.get("https://www.themealdb.com/api/json/v1/1/list.php?c=list");
   }
 
-
+  getAllMealsByCategory(Category: string): Observable<any> {
+    if (Category == "all") {
+      return this.httpClient.get(`https://www.themealdb.com/api/json/v1/1/search.php?s`)
+    } else {
+      return this.httpClient.get(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${Category}`)
+    }
+  }
 
 }

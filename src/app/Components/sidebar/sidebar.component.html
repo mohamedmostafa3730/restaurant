@@ -20,7 +20,7 @@
   </h5>
   <div class="py-4 overflow-y-auto">
     <ul class="space-y-2 font-medium">
-      <li>
+      <li routerLink="/services/all">
         <a
           class="flex items-center p-2 text-[#eee] rounded-2xl hover:bg-[#EEEEEE] hover:text-[#D84040] group"
         >
@@ -28,7 +28,7 @@
         </a>
       </li>
       @for (name of categoriesNames; track $index) {
-      <li>
+      <li [routerLink]="['/services', name.strCategory]">
         <a
           class="flex items-baseline p-2 text-[#eee] rounded-2xl hover:bg-[#EEEEEE] hover:text-[#D84040] group"
         >
