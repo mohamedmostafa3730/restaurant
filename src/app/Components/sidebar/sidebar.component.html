@@ -27,15 +27,15 @@
           <span class="ms-3">All</span>
         </a>
       </li>
-      @for (name of categoriesNames; track $index) {
+      @if(categoriesNames){ @for (name of categoriesNames; track $index) {
       <li [routerLink]="['/services', name.strCategory]">
         <a
-          class="flex items-baseline p-2 text-[#eee] rounded-2xl hover:bg-[#EEEEEE] hover:text-[#D84040] group"
+          class="flex items-baseline p-2 text-[#eee] rounded-2xl hover:bg-[#EEEEEE] hover:text-[#D84040] transition-all duration-300 group"
         >
           <span class="ms-3"> {{ name.strCategory }} </span>
         </a>
       </li>
-      }
+      } }
     </ul>
   </div>
 </div>

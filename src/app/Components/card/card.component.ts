@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { DataService } from '../../data.service';
-import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-card',
-  imports: [RouterOutlet],
+  imports: [],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
@@ -14,19 +14,18 @@ export class CardComponent {
   constructor(private dataServes: DataService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.dataServes.getAllMealsByCategory("Beef").subscribe((res) => {
-      this.meals = res.meals;
-    })
+    if (typeof document != "undefined") {
 
-    this.activatedRoute.paramMap.subscribe((apr) => {
-      this.Cname = apr.get("customName") || "all";
-    })
-    this.dataServes.getAllMealsByCategory(this.Cname).subscribe((res) => {
-      this.meals = res.meals;
-    })
-    console.log(this.Cname);
+      this.activatedRoute.paramMap.subscribe((apr) => {
+        this.Cname = apr.get("customName") || "all";
+        console.log(this.Cname);
+
+      })
+
+      this.dataServes.getAllMealsByCategory(this.Cname).subscribe((res) => {
+        this.meals = res.meals;
+      })
+    }
 
   };
-
-
 }

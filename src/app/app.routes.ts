@@ -11,10 +11,11 @@ export const routes: Routes = [
     { path: "home", component: HomeComponent, title: "Home" },
     { path: "about", component: AboutComponent, title: "About" },
     {
-        path: "services", component: ServicesComponent, title: "Services", children: [
+        path: "services", component: ServicesComponent, title: "services", children: [
             { path: "", redirectTo: 'all', pathMatch: "full" },
-            { path: "all", component: ServicesComponent, title: "Services - All" },
-            { path: ":customName", component: ServicesComponent, title: "Services - Custom" }
+            { path: "all", component: CardComponent, title: "services/all" },
+            { path: ":customName", component: CardComponent, title: "services" },
+            // { path: ":customName/:mealId", component: CardComponent, title: "Card" }
         ]
     },
     { path: "contact", component: ContactComponent, title: "Contact" },

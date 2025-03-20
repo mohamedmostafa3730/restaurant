@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../../data.service';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-sidebar',
   imports: [RouterLink],
@@ -12,8 +12,10 @@ export class SidebarComponent {
   constructor(private dataServes: DataService) { }
 
   ngOnInit(): void {
-    this.dataServes.getAllCategoriesName().subscribe((res) => {
-      this.categoriesNames = res.meals;
-    })
+    if (typeof document != "undefined") {
+      this.dataServes.getAllCategoriesName().subscribe((res) => {
+        this.categoriesNames = res.meals;
+      })
+    }
   };
 }

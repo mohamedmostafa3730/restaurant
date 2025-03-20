@@ -20,7 +20,7 @@ export class DataService {
     if (Category == "all") {
       return this.httpClient.get(`https://www.themealdb.com/api/json/v1/1/search.php?s`)
     } else {
-      return this.httpClient.get(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${Category}`)
+      return this.httpClient.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${Category}`)
     }
   }
 

@@ -1,5 +1,5 @@
 <section>
-  <div class="flex justify-center my-40">
+  <div class="flex justify-center my-40 selection:bg-[rgba(142,22,22,0.30)]">
     <div
       class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-3 gap-y-28"
     >
@@ -11,14 +11,14 @@
           >
             <img
               class="w-48 h-50 hover:rotate-360 rounded-full -translate-y-1/2 transition-all duration-500"
-              src="{{ m.strMealThumb }}"
+              [src]="m.strMealThumb"
             />
             <h2 class="text-3xl uppercase font-bold text-[#1D1616]">
               {{ m.strMeal }}
             </h2>
             <p class="my-4 text-[#8E1616] text-xl">
               <i class="fa-solid fa-globe"></i>
-              <span class="ms-2">{{ m.strArea }}</span>
+              <span class="ms-2">{{ m.strArea || "GLOBULE" }}</span>
             </p>
             <button
               class="p-2 bg-[#8E1616] rounded-4xl hover:bg-[#EEEEEE] hover:text-[#D84040] font-medium uppercase transition-all duration-300 cursor-pointer"
